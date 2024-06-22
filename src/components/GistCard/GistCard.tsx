@@ -1,5 +1,6 @@
 import { Card } from "@mantine/core";
 import { Gist } from "../../api/models/Gist";
+import FilesBadges from "./components/FileBadges";
 
 type GistCardProps = {
   gist: Gist;
@@ -12,6 +13,7 @@ function GistCard({ gist }: GistCardProps) {
         {gist.html_url}
         {gist.description}
         {gist.forks_url}
+        <FilesBadges files={gist.files} />
       </Card.Section>
     </Card>
   );
