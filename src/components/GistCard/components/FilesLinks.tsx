@@ -9,7 +9,11 @@ type FilesLinksProps = {
 function FilesLinks({ files }: FilesLinksProps) {
   const filesLinks = [];
   for (const key in files) {
-    filesLinks.push(<Link to={files[key].raw_url}>{key}</Link>);
+    filesLinks.push(
+      <Link key={key} to={files[key].raw_url}>
+        {key}
+      </Link>
+    );
   }
   return <Group>{filesLinks}</Group>;
 }
