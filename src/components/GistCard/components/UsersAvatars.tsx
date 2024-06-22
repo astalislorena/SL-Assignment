@@ -1,4 +1,4 @@
-import { Avatar } from "@mantine/core";
+import { Avatar, Group } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { axiosClient } from "../../../api/axiosClient";
@@ -21,7 +21,7 @@ function UsersAvatars({ gistId }: UsersAvatarsProps) {
     return null;
   }
 
-  const avatars = users
+  const avatars = [...new Map(users.map((u) => [u.owner.id, u])).values()]
     .slice(0, 3)
     .map((u) => u.owner)
     .map((user) => (
@@ -36,11 +36,17 @@ function UsersAvatars({ gistId }: UsersAvatarsProps) {
     ));
 
   return (
-    <Avatar.Group id={gistId} spacing="sm">
+    <Group>
       {"Forked by"}
-      {avatars}
-      {users.length > 3 ? <Avatar>+{users.length - 3}</Avatar> : null}
-    </Avatar.Group>
+      <Avatar.Group id={gistId} spacing="sm">
+        {avatars}
+        {users.length > 3 ? (
+          <Avatar radius="xl" size="sm">
+            +{users.length - 3}
+          </Avatar>
+        ) : null}
+      </Avatar.Group>
+    </Group>
   );
 }
 
