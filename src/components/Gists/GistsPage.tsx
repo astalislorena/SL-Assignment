@@ -15,7 +15,6 @@ function GistsPage() {
     });
   };
 
-  console.log(gists);
   return (
     <Container>
       <Searchbar

@@ -1,8 +1,9 @@
-import { Avatar, Card, Group } from "@mantine/core";
+import { Avatar, Card, Group, Text } from "@mantine/core";
 import { Gist } from "../../api/models/Gist";
 import FilesBadges from "./components/FilesBadges";
 import { Link } from "react-router-dom";
 import FilesLinks from "./components/FilesLinks";
+import UsersAvatars from "./components/UsersAvatars";
 
 type GistCardProps = {
   gist: Gist;
@@ -23,7 +24,7 @@ function GistCard({ gist }: GistCardProps) {
               src={gist.owner.avatar_url}
             />
           </Group>
-
+          <UsersAvatars gistId={gist.id} />
           <FilesBadges files={gist.files} />
         </Group>
       </Card.Section>

@@ -1,4 +1,4 @@
-import { Owner } from "./Owner";
+import { User } from "./User";
 
 export interface Gist {
   id: string;
@@ -6,7 +6,7 @@ export interface Gist {
   forks_url: string;
   description: string;
   files: { [id: string]: File };
-  owner: Owner;
+  owner: User;
 }
 
 export interface File {
