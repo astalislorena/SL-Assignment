@@ -13,9 +13,9 @@ function FilesBadges({ files }: FilesBadgesProps) {
     }
   }
 
-  const badges = fileTypes.map((fileType) => (
-    <Badge key={fileType}> {fileType} </Badge>
-  ));
+  const badges = fileTypes
+    .filter((t) => t !== null)
+    .map((fileType) => <Badge key={fileType}> {fileType} </Badge>);
   return <Group>{badges}</Group>;
 }
 
