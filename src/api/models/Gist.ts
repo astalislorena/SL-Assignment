@@ -11,4 +11,5 @@ export interface Gist {
 
 export interface File {
   language: string;
+  raw_url: string;
 }
