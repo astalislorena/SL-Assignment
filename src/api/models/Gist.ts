@@ -1,4 +1,5 @@
 export interface Gist {
+  id: string;
   html_url: string;
   forks_url: string;
   description: string;
